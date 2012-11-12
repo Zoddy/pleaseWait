@@ -1,7 +1,7 @@
 pleaseWait
 ----------
 
-Load animations with modern web techniques.
+Load animations with modern CSS.
 
 # Rules
 
@@ -13,3 +13,5 @@ More loader are very welcome, but there are some rules, to get a successfull mer
 4. No rule without an exception. If the loader is cool enough, it's absolutely ok, if it's only work in Chrome ;).
 5. For the default skin, use the default colors of the pleaseWait-Page. It's ok, if the user set's other colors (if you give him the tools for that).
 6. Do not use `opacity`, `rgba` is the better way.
+7. The max size of a loader should be 30x30px
+8. Oh, and did I say that: NO FLASH!
