@@ -1,0 +1,57 @@
+#octagon {
+  /*-webkit-animation-direction: normal;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: octagon;
+  -webkit-animation-play-state: paused;
+  -webkit-animation-timing-function: linear;*/
+  height: 20px;
+  position: relative;
+  width: 20px;
+  -webkit-transform: rotate(90deg);
+}
+
+#octagon div {
+  border-color: transparent #2187e7;
+  border-style: solid;
+  border-width: 4px 10px;
+  height: 1px;
+  position: absolute;
+  top: 5px;
+  width: 1px;
+}
+
+#octagon div:nth-child(0n+2) {
+  -webkit-transform: rotate(45deg);
+}
+
+#octagon div:nth-child(0n+3) {
+  -webkit-transform: rotate(90deg);
+}
+
+#octagon div:nth-child(0n+4) {
+  -webkit-transform: rotate(135deg);
+}
+
+@-webkit-keyframes octagon {
+  from {
+    -webkit-transform: rotate(0deg);
+    width: 0;
+  }
+
+  25% {
+    width: 5px;
+  }
+
+  50% {
+    -webkit-transform: rotate(45deg);
+  }
+
+  75% {
+    width: 0;
+  }
+
+  to {
+    -webkit-transform: rotate(90deg);
+  }
+}

@@ -1,0 +1,74 @@
+body {
+  background-color: #000;
+}
+
+#toc {
+  margin: 0;
+  padding: 0;
+}
+
+#toc > li {
+  color: #2187e7;
+  font-family: "Source Code Pro", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 30px;
+  list-style-type: none;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px #111;
+}
+
+#toc > li > * {
+  background-color: #222;
+  border: 1px solid #222;
+  border-color: #2f2f2f #222 #222 #111;
+  display: block;
+  height: 30px;
+  margin-bottom: 10px;
+  margin-right: 1px;
+  padding: 10px;
+}
+
+#toc > li > div:first-child {
+  clear: both;
+  float: left;
+  width: 30px;
+}
+
+#toc > li > .play:after {
+  border: 10px solid #2187e7;
+  border-color: transparent transparent transparent #2187e7;
+  border-left-width: 20px;
+  content: "";
+  display: block;
+  height: 0;
+  margin: 5px 0 0 5px;
+  width: 0;
+}
+
+#toc > li > .pause:before {
+  background-color: #2187e7;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  margin: 5px 5px 0 5px;
+  width: 8px;
+}
+
+#toc > li > .pause:after {
+  background-color: #2187e7;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 8px;
+}
+
+#toc > li > span {
+  float: left;
+  width: 200px;
+}
+
+#toc > li > div:last-child {
+  float: left;
+  width: 30px;
+}
