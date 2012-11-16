@@ -1,0 +1,35 @@
+#border_wheel
+  -webkit-animation-direction alternate
+  -webkit-animation-duration 0.3s
+  -webkit-animation-iteration-count infinite
+  -webkit-animation-name border_wheel
+  -webkit-animation-timing-function linear
+  border 3px solid fgColor
+  border-radius 50%
+  height 18px
+  margin 3px
+  padding-top 0
+  position relative
+  width 18px
+
+  &:after
+    background-color fgColor
+    border-radius 50%
+    content ""
+    display block
+    height 20px
+    margin auto
+    width 20px
+
+@-webkit-keyframes border_wheel
+  from
+    height 18px
+    margin 3px
+    padding-top 0
+    width 18px
+
+  to
+    height 24px
+    padding-top 3px
+    margin 0
+    width 24px

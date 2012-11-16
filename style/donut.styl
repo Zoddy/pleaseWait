@@ -1,0 +1,27 @@
+#donut
+  -webkit-animation-direction normal
+  -webkit-animation-duration 1s
+  -webkit-animation-iteration-count infinite
+  -webkit-animation-name donut
+  -webkit-animation-timing-function linear
+  border 5px solid fgColor
+  border-radius 50%
+  height 20px
+  margin auto
+  width 20px
+
+#donut:after
+  background-color rgba(255, 255, 255, 0.2)
+  border-radius 50%
+  content ""
+  display block
+  height 5px
+  margin -5px auto auto auto
+  width 5px
+
+@-webkit-keyframes donut
+  from
+    -webkit-transform rotate(0deg)
+
+  to
+    -webkit-transform rotate(360deg)

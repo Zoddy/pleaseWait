@@ -1,0 +1,43 @@
+#morphball
+  -webkit-animation-direction normal
+  -webkit-animation-duration 2s
+  -webkit-animation-iteration-count infinite
+  -webkit-animation-name morphball
+  -webkit-animation-timing-function linear
+  background-color fgColor
+  border-radius 50%
+  height 20px
+  width 20px
+
+@-webkit-keyframes morphball
+  from
+    border-radius 5% 20% 35% 50%
+    height 20px
+    margin 5px
+    -webkit-transform rotate(0deg)
+    width 20px
+
+  17%
+    border-radius 20% 35% 50% 35%
+
+  34%
+    border-radius 35% 50% 35% 20%
+
+  50%
+    border-radius 50% 35% 20% 5%
+    height 30px
+    margin 0
+    width 30px
+
+  67%
+    border-radius 35% 20% 5% 20%
+
+  84%
+    border-radius 20% 5% 20% 35%
+
+  to
+    border-radius 5% 20% 35% 50%
+    height 20px
+    margin 5px
+    -webkit-transform rotate(360deg)
+    width 20px

@@ -1,0 +1,109 @@
+fgColor = #2187e7
+bgColor = #111
+
+
+animation-direction(direction)
+  -webkit-animation-direction direction
+
+animation-duration(duration)
+  -webkit-animation-duration duration
+
+animation-iteration-count(count)
+  -webkit-animation-iteration-count count
+
+animation-name(name)
+  -webkit-animation-name name
+
+animation-timing-function(function)
+  -webkit-animation-timing-function function
+
+transform(content)
+  -webkit-transform content
+
+
+body
+  background -webkit-radial-gradient(#000 15%, transparent 16%) 0 0,
+             -webkit-radial-gradient(#000 15%, transparent 16%) 8px 8px,
+             -webkit-radial-gradient(
+               rgba(255, 255, 255, 0.1) 15%,
+               transparent 20%
+             ) 0 1px,
+             -webkit-radial-gradient(
+               rgba(255, 255, 255, 0.1) 15%,
+               transparent 20%
+             ) 8px 9px
+  background-color #282828
+  background-size 16px 16px
+  color fgColor
+  font-family "Source Code Pro", sans-serif
+  font-size 14px
+  font-weight 700
+  text-shadow 1px 1px #333
+
+h1, h2, #toc li, #toc li:before, #toc li:after, footer
+  background-color bgColor
+  border-color #111 #333 #333 #111
+  border-radius 4px
+  border-style solid
+  border-width 1px
+  padding 10px
+
+h1, h2
+  display table
+  margin auto
+  text-align center
+
+h1
+  font-size 3em
+  margin-bottom 5px
+
+  &:before
+    content "{"
+
+  &:after
+    content "}"
+
+h2
+  font-size 1em
+
+#toc
+  background-color rgba(17, 17, 17, 0.3)
+  border-radius 3px
+  display table
+  list-style-type none
+  margin 60px auto
+  padding 0
+  width 552px
+
+  > li
+    cursor pointer
+    float left
+    height 30px
+    padding 10px
+    position relative
+    margin 20px
+    width 30px
+
+    &.play > div
+      -webkit-animation-play-state running
+
+    &.pause > div
+      -webkit-animation-play-state paused
+
+    > div
+      -webkit-animation-play-state paused
+
+footer
+  clear both
+  display table
+  font-size 0.75em
+  margin auto
+  padding 5px
+  text-align center
+
+a
+  color fgColor
+  text-decoration underline
+
+a:hover
+  text-shadow 0 0 2px fgColor

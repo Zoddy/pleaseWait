@@ -1,0 +1,49 @@
+#radioactive
+  -webkit-animation-direction normal
+  -webkit-animation-duration 1.5s
+  -webkit-animation-iteration-count infinite
+  -webkit-animation-name radioactive
+  -webkit-animation-timing-function linear
+  border 2px solid fgColor
+  border-radius 50%
+  height 26px
+  position relative
+  width 26px
+
+  // inner circle
+  &:after
+    background-color fgColor
+    border 2px solid bgColor
+    border-radius 50%
+    content ""
+    display block
+    height 6px
+    left 8px
+    position absolute
+    top 8px
+    width 6px
+
+  // trefoil
+  div
+    border-color fgColor transparent transparent transparent
+    border-radius 40%
+    border-style solid
+    border-width 12px 8px
+    height 0
+    left 5px
+    position absolute
+    top 1px
+    width 0
+
+    &:nth-child(0n+2)
+      transform rotate(123deg)
+
+    &:nth-child(0n+3)
+      transform rotate(237deg)
+
+@-webkit-keyframes radioactive
+  from
+    transform rotate(0deg)
+
+  to
+    transform rotate(360deg)

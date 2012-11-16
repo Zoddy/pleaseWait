@@ -1,0 +1,27 @@
+{
+  "name": "pleaseWait",
+  "version": "0.5.0",
+  "description": "loader with modern css",
+  "main": "build.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/meecrom/pleaseWait.git"
+  },
+  "keywords": [
+    "css",
+    "css3",
+    "loader",
+    "animation"
+  ],
+  "author": "André Kussmann",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "uglify-js": "1.3.4",
+    "stylus": "0.30.1"
+  },
+  "private": true
+}
