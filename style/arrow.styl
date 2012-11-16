@@ -1,0 +1,29 @@
+#arrow
+  -webkit-animation-direction normal
+  -webkit-animation-duration 1s
+  -webkit-animation-iteration-count infinite
+  -webkit-animation-name arrow
+  -webkit-animation-timing-function linear
+  border 2px solid fgColor
+  border-radius 50%
+  height 26px
+  position relative
+  width 26px
+
+  &:after
+    border 5px solid bgColor
+    border-top-color fgColor
+    content ""
+    display block
+    height 0
+    left -6px
+    position absolute
+    top 10px
+    width 0
+
+@-webkit-keyframes arrow
+  from
+    -webkit-transform rotate(0deg)
+
+  to
+    -webkit-transform rotate(-360deg)
