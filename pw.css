@@ -80,4 +80,12 @@ a:hover{text-shadow:0 0 2px #2187e7}
 #radioactive div:nth-child(0n+3){-webkit-transform:rotate(237deg)}
 @-webkit-keyframes radioactive{0%{-webkit-transform:rotate(0)}
 100%{-webkit-transform:rotate(360deg)}
+}#doublearrow{-webkit-animation-direction:normal;-webkit-animation-duration:1s;-webkit-animation-iteration-count:infinite;-webkit-animation-name:doublearrow;-webkit-animation-timing-function:linear;height:30px;position:relative;width:30px;}
+#doublearrow div{border-color:#2187e7 #2187e7 transparent transparent;border-radius:50%;border-style:solid;border-width:2px;height:26px;left:0;position:absolute;top:0;width:26px;}
+#doublearrow div:before{background-color:#111;content:"";height:10px;left:21px;position:absolute;top:11px;width:10px}
+#doublearrow div:after{border:5px solid transparent;border-top-color:#2187e7;content:"";display:block;height:0;left:-4px;position:absolute;top:0;-webkit-transform:rotate(45deg);width:0}
+#doublearrow div:first-child{-webkit-transform:rotate(-45deg)}
+#doublearrow div:last-child{-webkit-transform:rotate(135deg)}
+@-webkit-keyframes doublearrow{0%{-webkit-transform:rotate(0)}
+100%{-webkit-transform:rotate(-360deg)}
 }
