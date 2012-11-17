@@ -37,7 +37,7 @@ var pw = {
           info.outerWidth() / 2 +
           loader.outerWidth() / 2
         ).toFixed(0) + 'px',
-        'top': (loaderPos.top - info.height() - 25) + 'px'
+        'top': (loaderPos.top - info.height() / 2 + loader.height() / 2) + 'px'
       });
     } else {
       this._hideInfo();
