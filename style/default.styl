@@ -40,7 +40,7 @@ body
   font-weight 700
   text-shadow 1px 1px #333
 
-h1, h2, #toc li, #toc li:before, #toc li:after, footer
+h1, h2, #toc li, #toc li:before, #toc li:after, #loader_info, footer
   background-color bgColor
   border-color #111 #333 #333 #111
   border-radius 4px
@@ -66,6 +66,11 @@ h1
 h2
   font-size 1em
 
+h3
+  font-size 1em
+  margin 0
+  text-align center
+
 #toc
   background-color rgba(17, 17, 17, 0.3)
   border-radius 3px
@@ -84,14 +89,41 @@ h2
     margin 20px
     width 30px
 
-    &.play > div
-      -webkit-animation-play-state running
+    &.play
+      z-index 2
+
+      > div
+        -webkit-animation-play-state running
 
     &.pause > div
       -webkit-animation-play-state paused
 
     > div
       -webkit-animation-play-state paused
+
+#loader_info
+  background-color bgColor
+  left 0
+  padding 5px
+  position absolute
+  top 0
+  z-index 1
+
+  a
+    font-size 0.75em
+
+    &:before
+      content "by "
+
+  &:after
+    border 15px solid transparent
+    border-top-color bgColor
+    content ""
+    display block
+    height 0
+    margin auto
+    margin-bottom -30px
+    width 0
 
 footer
   clear both
