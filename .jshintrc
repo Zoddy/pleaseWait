@@ -16,6 +16,7 @@
   "immed": false, // parens around functions are ok
   "indent": 2, // 2 spaces indentation
   "iterator": true, // because we are in nodejs, we can use __iterator__
+  "jquery": true, // we are using jquery
   "lastsemic": false, // don't miss semicolons
   "latedef": true, // explicitely define variables
   "laxbreak": false, // warn us about unsafe line breaks
@@ -26,7 +27,6 @@
   "multistr": false, // correct using of multiline strings
   "newcap": true, // constructor name always begins with an uppercase letter
   "noarg": true, // not using arguments.callee and arguments.caller
-  "node": true, // we are using nodejs
   "noempty": true, // no empty blocks
   "nomen": false, // using dangling _ for "private" things is allowed
   "nonew": true, // no new MyConstructor without assigning to a variable
