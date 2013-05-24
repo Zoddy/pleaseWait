@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = function(grunt) {
   var Config = {
         distDirectory: __dirname + '/dist',
@@ -21,22 +19,37 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+
+    // grunt-contrib-clean
+    clean: [
+      Config.distDirectory + '/spinners.html',
+      Config.distDirectory + '/style.css',
+      '!' + Config.distDirectory + '/index.html'
+    ],
+
     // grunt-contrib-concat
     concat: {
       spinner: {
         src: [Config.distDirectory + '/**/spinner.html'],
-        dest: './dist/spinners.html'
+        dest: Config.distDirectory + '/spinners.html'
+      },
+      stylus: {
+        src: [
+          __dirname + '/default.styl',
+          Config.spinnerDirectory + '/**/*.styl'
+        ],
+        dest: Config.distDirectory + '/style.styl'
       }
     },
 
     // grunt-contrib-stylus
     stylus: {
       compile: {
+        options: {
+          compress: false
+        }
         files: {
-          './dist/style.css': [
-            __dirname + '/default.styl',
-            Config.spinnerDirectory + '/**/*.styl'
-          ]
+          './dist/style.css': Config.distDirectory + '/style.styl'
         }
       }
     },
