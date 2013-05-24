@@ -33,7 +33,10 @@ module.exports = function(grunt) {
     stylus: {
       compile: {
         files: {
-          './dist/style.css': [Config.spinnerDirectory + '/**/*.styl']
+          './dist/style.css': [
+            __dirname + '/default.styl',
+            Config.spinnerDirectory + '/**/*.styl'
+          ]
         }
       }
     },
