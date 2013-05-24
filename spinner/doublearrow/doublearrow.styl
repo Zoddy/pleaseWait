@@ -1,0 +1,56 @@
+#doublearrow
+  -webkit-animation-direction normal
+  -webkit-animation-duration 1s
+  -webkit-animation-iteration-count infinite
+  -webkit-animation-name doublearrow
+  -webkit-animation-timing-function linear
+  height 30px
+  position relative
+  width 30px
+
+  div
+    border-color fgColor fgColor transparent transparent
+    border-radius 50%
+    border-style solid
+    border-width 2px
+    height 26px
+    left 0
+    position absolute
+    top 0
+    width 26px
+
+    // smaller circle
+    &:before
+      background-color bgColor
+      content ""
+      height 10px
+      left 21px
+      position absolute
+      top 11px
+      width 10px
+
+    // arrow
+    &:after
+      border 5px solid transparent
+      border-top-color fgColor
+      content ""
+      display block
+      height 0
+      left -4px
+      position absolute
+      top 0
+      transform rotate(45deg)
+      width 0
+
+    &:first-child
+      transform rotate(-45deg)
+
+    &:last-child
+      transform rotate(135deg)
+
+@-webkit-keyframes doublearrow
+  from
+    transform rotate(0deg)
+
+  to
+    transform rotate(-360deg)
