@@ -1,0 +1,83 @@
+#breathingPie
+
+  height 30px
+  position relative
+  margin auto
+  width 30px
+
+  div
+    animation-direction normal
+    animation-duration 1s
+    animation-iteration-count infinite
+    animation-name pie
+    animation-timing-function linear
+
+    height 8px
+    left 5px
+    position absolute
+    top 10px
+    width 20px
+
+    transform scale(1)
+
+    &:before, &:after
+      border-top 4px solid transparent
+      border-bottom 4px solid transparent
+      content ''
+      height 0
+      position absolute
+      top 0
+      width 0
+
+    &:before
+      border-left 10px solid fgColor
+      left 0
+
+    &:after
+      border-right 10px solid fgColor
+      right 0
+
+    &:nth-child(1)
+      animation-name pie1
+      transform scale(1) rotate(0deg)
+
+    &:nth-child(2)
+      animation-name pie2
+      transform scale(1) rotate(45deg)
+
+    &:nth-child(3)
+      animation-name pie3
+      transform scale(1) rotate(90deg)
+
+    &:nth-child(4)
+      animation-name pie4
+      transform scale(1) rotate(135.5deg)
+
+@-webkit-keyframes pie1
+  0%
+    transform scale(1) rotate(0deg)
+  50%
+    transform scale(1.5) rotate(0deg)
+  100%
+    transform scale(1) rotate(0deg)
+@-webkit-keyframes pie2
+  0%
+    transform scale(1) rotate(45deg)
+  50%
+    transform scale(1.5) rotate(45deg)
+  100%
+    transform scale(1) rotate(45deg)
+@-webkit-keyframes pie3
+  0%
+    transform scale(1) rotate(90deg)
+  50%
+    transform scale(1.5) rotate(90deg)
+  100%
+    transform scale(1) rotate(90deg)
+@-webkit-keyframes pie4
+  0%
+    transform scale(1) rotate(135.5deg)
+  50%
+    transform scale(1.5) rotate(135.5deg)
+  100%
+    transform scale(1) rotate(135.5deg)
