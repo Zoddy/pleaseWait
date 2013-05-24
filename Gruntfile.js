@@ -101,7 +101,7 @@ module.exports = function(grunt) {
         );
 
         grunt.log.writeln(
-          'Generated file: "./dist/' + spinners[i].info.name + '/spinner.html"'
+          'File: ./dist/' + spinners[i].info.name + '/spinner.html created.'
         );
       }
     }
