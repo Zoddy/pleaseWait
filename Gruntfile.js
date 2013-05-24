@@ -108,6 +108,7 @@ module.exports = function(grunt) {
         files: [
           Config.tmplDirectory + '/*.html',
           Config.spinnerDirectory + '/**/*',
+          __dirname + '/default.styl',
           __dirname + '/pw.js'
         ],
         tasks: ['default'],
