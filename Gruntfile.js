@@ -29,10 +29,27 @@ module.exports = function(grunt) {
       }
     },
 
+    // grunt-contrib-stylus
     stylus: {
       compile: {
         files: {
           './dist/style.css': [Config.spinnerDirectory + '/**/*.styl']
+        }
+      }
+    },
+
+
+    // grunt-contrib-watch
+    watch: {
+      scripts: {
+        files: [
+          Config.tmplDirectory + '/*.html',
+          Config.spinnerDirectory + '/**/*',
+          __dirname + '/pw.js'
+        ],
+        tasks: ['default'],
+        options: {
+          nospawn: true,
         }
       }
     }
@@ -43,6 +60,9 @@ module.exports = function(grunt) {
 
   // css
   grunt.loadNpmTasks('grunt-contrib-stylus');
+
+  // watcher
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // spinner template handling
   grunt.registerTask(
