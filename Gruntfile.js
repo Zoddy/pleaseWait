@@ -47,7 +47,7 @@ module.exports = function(grunt) {
       compile: {
         options: {
           compress: false
-        }
+        },
         files: {
           './dist/style.css': Config.distDirectory + '/style.styl'
         }
