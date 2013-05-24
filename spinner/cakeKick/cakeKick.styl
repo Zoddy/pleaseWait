@@ -1,0 +1,156 @@
+#cake_kick
+  height 30px
+  margin auto
+  position relative
+  width 30px
+
+  div
+    animation-direction normal
+    animation-duration 6s
+    animation-iteration-count infinite
+    animation-play-state inherit
+    animation-timing-function linear
+    border-color fgColor transparent transparent transparent
+    border-radius 40%
+    border-style solid
+    border-width 12px 8px
+    height 0
+    left 7px
+    position absolute
+    top 1px
+    width 0
+
+    &:nth-child(0n+1)
+      animation-name part-one
+      transform rotate(0deg)
+
+    &:nth-child(0n+2)
+      animation-delay 330ms
+      animation-name part-two
+      transform rotate(120deg)
+
+    &:nth-child(0n+3)
+      animation-delay 660ms
+      animation-name part-three
+      transform rotate(240deg)
+
+@-webkit-keyframes part-one
+  from
+    transform rotate(0deg)
+
+  5.5%
+    transform rotate(60deg)
+
+  16.5%
+    transform rotate(60deg)
+
+  22%
+    transform rotate(120deg)
+
+  33%
+    transform rotate(120deg)
+
+  38.5%
+    transform rotate(180deg)
+
+  49.5%
+    transform rotate(180deg)
+
+  55%
+    transform rotate(240deg)
+
+  66%
+    transform rotate(240deg)
+
+  71.5%
+    transform rotate(300deg)
+
+  82.5%
+    transform rotate(300deg)
+
+  88%
+    transform rotate(360deg)
+
+  to
+    transform rotate(360deg)
+
+
+@-webkit-keyframes part-two
+  from
+    transform rotate(120deg)
+
+  5.5%
+    transform rotate(180deg)
+
+  16.5%
+    transform rotate(180deg)
+
+  22%
+    transform rotate(240deg)
+
+  33%
+    transform rotate(240deg)
+
+  38.5%
+    transform rotate(300deg)
+
+  49.5%
+    transform rotate(300deg)
+
+  55%
+    transform rotate(360deg)
+
+  66%
+    transform rotate(360deg)
+
+  71.5%
+    transform rotate(420deg)
+
+  82.5%
+    transform rotate(420deg)
+
+  88%
+    transform rotate(480deg)
+
+  to
+    transform rotate(480deg)
+
+@-webkit-keyframes part-three
+  from
+    transform rotate(240deg)
+
+  5.5%
+    transform rotate(300deg)
+
+  16.5%
+    transform rotate(300deg)
+
+  22%
+    transform rotate(360deg)
+
+  33%
+    transform rotate(360deg)
+
+  38.5%
+    transform rotate(420deg)
+
+  49.5%
+    transform rotate(420deg)
+
+  55%
+    transform rotate(480deg)
+
+  66%
+    transform rotate(480deg)
+
+  71.5%
+    transform rotate(540deg)
+
+  82.5%
+    transform rotate(540deg)
+
+  88%
+    transform rotate(600deg)
+
+  to
+    transform rotate(600deg)
