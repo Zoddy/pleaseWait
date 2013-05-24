@@ -79,6 +79,23 @@ module.exports = function(grunt) {
     },
 
 
+    // grunt-contrib-uglify
+    uglify: {
+      options: {
+        report: 'gzip'
+      },
+      dist: {
+        options: {
+          mangle: true,
+          compress: true
+        },
+        files: {
+          './dist/pw.min.js': ['./pw.js']
+        }
+      }
+    },
+
+
     // grunt-contrib-watch
     watch: {
       scripts: {
@@ -101,6 +118,9 @@ module.exports = function(grunt) {
 
   // html
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
+
+  // js
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // css
   grunt.loadNpmTasks('grunt-contrib-stylus');
@@ -145,7 +165,7 @@ module.exports = function(grunt) {
               spinners: {
                 html: grunt.file.read(Config.distDirectory + '/spinners.html'),
                 style: grunt.file.read(Config.distDirectory + '/style.css'),
-                script: grunt.file.read(__dirname + '/pw.js')
+                script: grunt.file.read(Config.distDirectory + '/pw.min.js')
               }
             }
           }
@@ -164,6 +184,7 @@ module.exports = function(grunt) {
       'renderSpinnerListItems',
       'concat',
       'stylus',
+      'uglify',
       'renderIndex',
       'htmlmin',
       'clean'
