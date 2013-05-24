@@ -49,7 +49,7 @@ module.exports = function(grunt) {
     stylus: {
       compile: {
         options: {
-          compress: false
+          compress: true
         },
         files: {
           './dist/style.css': Config.distDirectory + '/style.styl'
