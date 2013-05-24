@@ -10,7 +10,10 @@ module.exports = function(grunt) {
 
         return {
           info: require(directory + 'info.json'),
-          html: fs.readFileSync(directory + spinner + '.html', 'utf8'),
+          html: function() {
+            return fs.readFileSync(directory + spinner + '.html', 'utf8');
+          },
+          // style not needed - only here for completion
           style: fs.readFileSync(directory + spinner + '.styl', 'utf8')
         };
       });
@@ -26,6 +29,9 @@ module.exports = function(grunt) {
         Config.distDirectory + '/**/*',
         '!' + Config.distDirectory + '/',
         '!' + Config.distDirectory + '/index.html'
+      ],
+      index: [
+        Config.distDirectory + '/index.html'
       ]
     },
 
@@ -181,13 +187,14 @@ module.exports = function(grunt) {
   grunt.registerTask(
     'default',
     [
+      'clean:index',
       'renderSpinnerListItems',
       'concat',
       'stylus',
       'uglify',
       'renderIndex',
       'htmlmin',
-      'clean'
+      'clean:all'
     ]
   );
 };
