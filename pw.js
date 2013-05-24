@@ -1,6 +1,7 @@
 'use strict';
 
 var pw = {
+  loader: {},
   _loader: {},
   _githubUri: 'https://github.com/',
   _info: null,
@@ -9,12 +10,29 @@ var pw = {
     this._loader = $('#toc > li');
     this._loader.addClass('pause');
     this._loader.hover(this._toggleAnimation.bind(this));
+    this._loader.click(this._showSettings.bind(this));
 
     this._info = $('#loader_info');
   },
 
+  _createSlider: function(name, content) {
+
+  },
+
   _hideInfo: function() {
-    this._info.hide();
+    if (!this._info.hasClass('settings')) {
+      this._info.hide();
+    }
+  },
+
+  _showSettings: function(event) {
+    var loader = $(event.currentTarget).find('> div').attr('id');
+
+    Object.keys(loader.properties).forEach(function(property) {
+      this._createSlider(property, loader.properties[property]);
+    }, this);
+
+    this._info.toggleClass('settings');
   },
 
   _toggleAnimation: function(event) {
