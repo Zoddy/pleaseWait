@@ -45,6 +45,27 @@ module.exports = function(grunt) {
       }
     },
 
+
+    // grunt-contrib-htmlmin
+    htmlmin: {
+      dist: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true,
+          collapseBooleanAttributes: true,
+          removeAttributeQuotes: true,
+          removeRedundantAttributes: true,
+          useShortDoctype: true,
+          removeEmptyAttributes: true,
+          removeOptionalTags: true
+        },
+        files: {
+          './dist/index.html': './dist/index.html'
+        }
+      }
+    },
+
+
     // grunt-contrib-stylus
     stylus: {
       compile: {
@@ -77,6 +98,9 @@ module.exports = function(grunt) {
   // basic file handling
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-clean');
+
+  // html
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
   // css
   grunt.loadNpmTasks('grunt-contrib-stylus');
@@ -136,6 +160,13 @@ module.exports = function(grunt) {
   // Default task(s).
   grunt.registerTask(
     'default',
-    ['renderSpinnerListItems', 'concat', 'stylus', 'renderIndex', 'clean']
+    [
+      'renderSpinnerListItems',
+      'concat',
+      'stylus',
+      'renderIndex',
+      'htmlmin',
+      'clean'
+    ]
   );
 };
