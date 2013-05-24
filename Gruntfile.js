@@ -21,11 +21,14 @@ module.exports = function(grunt) {
 
 
     // grunt-contrib-clean
-    clean: [
-      Config.distDirectory + '/spinners.html',
-      Config.distDirectory + '/style.css',
-      '!' + Config.distDirectory + '/index.html'
-    ],
+    clean: {
+      all: [
+        Config.distDirectory + '/**/*',
+        '!' + Config.distDirectory + '/',
+        '!' + Config.distDirectory + '/index.html'
+      ]
+    },
+
 
     // grunt-contrib-concat
     concat: {
@@ -73,6 +76,7 @@ module.exports = function(grunt) {
 
   // basic file handling
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
   // css
   grunt.loadNpmTasks('grunt-contrib-stylus');
@@ -125,16 +129,13 @@ module.exports = function(grunt) {
       );
 
       grunt.log.writeln('Generated file: "./dist/index.html');
-      //grunt.log.writeln('Included file: "./dist/index.html');
     }
   );
-
-
 
 
   // Default task(s).
   grunt.registerTask(
     'default',
-    ['renderSpinnerListItems', 'concat', 'stylus', 'renderIndex']
+    ['renderSpinnerListItems', 'concat', 'stylus', 'renderIndex', 'clean']
   );
 };
