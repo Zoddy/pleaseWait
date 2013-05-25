@@ -52,6 +52,21 @@ module.exports = function(grunt) {
     },
 
 
+    // grunt-contrib-copy
+    copy: {
+      main: {
+        files: [
+          {
+            cwd: __dirname + '/',
+            expand: true,
+            src: ['vendor/**'],
+            dest: Config.distDirectory + '/'
+          }
+        ]
+      }
+    },
+
+
     // grunt-contrib-htmlmin
     htmlmin: {
       dist: {
@@ -121,6 +136,7 @@ module.exports = function(grunt) {
 
   // basic file handling
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
 
   // html
@@ -195,7 +211,8 @@ module.exports = function(grunt) {
       'uglify',
       'renderIndex',
       'htmlmin',
-      'clean:all'
+      'clean:all',
+      'copy'
     ]
   );
 };
