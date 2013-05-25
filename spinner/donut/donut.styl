@@ -1,9 +1,10 @@
 #donut
-  -webkit-animation-direction normal
-  -webkit-animation-duration 1s
-  -webkit-animation-iteration-count infinite
-  -webkit-animation-name donut
-  -webkit-animation-timing-function linear
+  animation-direction normal
+  animation-duration 1s
+  animation-iteration-count infinite
+  animation-name donut
+  animation-play-state inherit
+  animation-timing-function linear
   border 5px solid fgColor
   border-radius 50%
   height 20px
@@ -21,7 +22,7 @@
 
 @-webkit-keyframes donut
   from
-    -webkit-transform rotate(0deg)
+    transform rotate(0deg)
 
   to
-    -webkit-transform rotate(360deg)
+    transform rotate(360deg)
