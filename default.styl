@@ -57,6 +57,12 @@ transform()
   -o-transform arguments
   transform arguments
 
+transition()
+  -webkit-transition arguments
+  -moz-transition arguments
+  -o-transition arguments
+  transition arguments
+
 
 body
   background -webkit-radial-gradient(#000 15%, transparent 16%) 0 0,
@@ -149,16 +155,29 @@ h3
   padding 5px
   position absolute
   top 0
+  transition left 0.5s ease-in
   z-index 1
 
   a
     display block
     font-size 0.75em
     margin-top 85px
+    text-align center
     white-space nowrap
 
     &:before
       content "by "
+
+  & > div
+    display inline-block
+
+#loaderInfoCss, #loaderInfoHtml
+  overflow hidden
+  transition width 0.5s ease-in
+  width 150px
+
+  &.hidden
+    width 0
 
 footer
   clear both
