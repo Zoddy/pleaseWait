@@ -3,19 +3,13 @@
   margin auto
   width 30px
 
-.play #cubicle div
-  -webkit-animation-play-state running
-
-.pause #cubicle div
-  -webkit-animation-play-state paused
-
 #cubicle div
-  -webkit-animation-direction normal
-  -webkit-animation-duration 1s
-  -webkit-animation-iteration-count infinite
-  -webkit-animation-name cubicle
-  -webkit-animation-play-state paused
-  -webkit-animation-timing-function linear
+  animation-direction normal
+  animation-duration 1s
+  animation-iteration-count infinite
+  animation-name cubicle
+  animation-play-state inherit
+  animation-timing-function linear
   float left
   height 11px
   margin 2px
@@ -23,22 +17,22 @@
   width 11px
 
 #cubicle div:nth-child(0n+1)
-  -webkit-animation-delay 0s
+  animation-delay 0s
   background-color fgColor
   outline-color fgColor
 
 #cubicle div:nth-child(0n+2)
-  -webkit-animation-delay 0.25s
+  animation-delay 0.25s
   background-color fgColor
   outline-color fgColor
 
 #cubicle div:nth-child(0n+3)
-  -webkit-animation-delay 0.5s
+  animation-delay 0.5s
   background-color fgColor
   outline-color fgColor
 
 #cubicle div:nth-child(0n+4)
-  -webkit-animation-delay 0.75s
+  animation-delay 0.75s
   background-color fgColor
   outline-color fgColor
 
