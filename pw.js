@@ -56,12 +56,16 @@ var pw = {
   _toggleCodeSnippets: function(event) {
     var css = this._infoCss,
         html = this._infoHtml,
-        info = this._info;
+        info = this._info,
+        loader = this._currentLoader;
+
+    html.text(loader.data('html'));
+    css.text(loader.data('css'));
 
     css.toggleClass('hidden');
     html.toggleClass('hidden');
 
-    //this._positionInfo();
+    this._positionInfo();
   },
 
   _showInfo: function(event) {
