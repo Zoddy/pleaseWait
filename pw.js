@@ -8,7 +8,6 @@ var pw = {
 
   init: function() {
     this._loader = $('#toc > li');
-    this._loader.addClass('pause');
     this._loader.hover(this._toggleAnimation.bind(this));
     this._loader.click(this._showSettings.bind(this));
 
