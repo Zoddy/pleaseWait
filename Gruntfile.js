@@ -8,15 +8,29 @@ module.exports = function(grunt) {
       spinners = fs.readdirSync(Config.spinnerDirectory).map(function(spinner) {
         var directory = Config.spinnerDirectory + '/' + spinner + '/';
 
+        // TODO refactor that!!!
         return {
+          cssDistPath: Config.distDirectory + '/' + spinner + '/' + spinner + '.css',
           info: require(directory + 'info.json'),
           html: function() {
             return fs.readFileSync(directory + spinner + '.html', 'utf8');
           },
-          // style not needed - only here for completion
+          stylusSpinnerPath: Config.spinnerDirectory + '/' + spinner + '/' + spinner + '.styl',
           style: fs.readFileSync(directory + spinner + '.styl', 'utf8')
         };
-      });
+      }),
+      getStylusDirectories = function() {
+        var i = 0,
+            stylusObject = {};
+
+        for (i; i < spinners.length; i++ ) {
+          stylusObject[ spinners[i].cssDistPath ] = spinners[i].stylusSpinnerPath;
+        }
+
+        stylusObject['./dist/style.css'] = Config.distDirectory + '/style.styl';
+
+        return stylusObject;
+      };
 
   // Project configuration.
   grunt.initConfig({
@@ -93,9 +107,7 @@ module.exports = function(grunt) {
         options: {
           compress: true
         },
-        files: {
-          './dist/style.css': Config.distDirectory + '/style.styl'
-        }
+        files: getStylusDirectories()
       }
     },
 
@@ -159,6 +171,8 @@ module.exports = function(grunt) {
       var i = 0;
 
       for (i; i < spinners.length; i++) {
+        spinners[i].css = grunt.file.read(spinners[i].cssDistPath);
+
         grunt.file.write(
           Config.distDirectory + '/' + spinners[i].info.name + '/spinner.html',
           grunt.template.process(
@@ -205,13 +219,13 @@ module.exports = function(grunt) {
     'default',
     [
       'clean:index',
-      'renderSpinnerListItems',
-      'concat',
       'stylus',
       'uglify',
+      'concat',
+      'renderSpinnerListItems',
       'renderIndex',
       'htmlmin',
-      'clean:all',
+      //'clean:all',
       'copy'
     ]
   );
