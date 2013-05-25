@@ -57,6 +57,12 @@ transform()
   -o-transform arguments
   transform arguments
 
+transition()
+  -webkit-transition arguments
+  -moz-transition arguments
+  -o-transition arguments
+  transition arguments
+
 
 body
   background -webkit-radial-gradient(#000 15%, transparent 16%) 0 0,
@@ -77,7 +83,7 @@ body
   font-weight 700
   text-shadow 1px 1px borderColor
 
-h1, h2, #toc li, #toc, #toc li:before, #toc li:after, #loader_info, footer
+h1, h2, #toc li, #toc, #toc li:before, #toc li:after, #loaderInfo, footer
   border-radius 4px
   box-shadow inset 2px 2px 30px #000
   padding 10px
@@ -137,7 +143,7 @@ h3
     &.pause div
       animation-play-state paused
 
-#loader_info
+#loaderInfo
   background-color bgColor
   border 1px solid fgColor
   display none
@@ -146,16 +152,29 @@ h3
   padding 5px
   position absolute
   top 0
+  transition left 0.5s ease-in
   z-index 1
 
   a
     display block
     font-size 0.75em
     margin-top 85px
+    text-align center
     white-space nowrap
 
     &:before
       content "by "
+
+  & > div
+    display inline-block
+
+#loaderInfoCss, #loaderInfoHtml
+  overflow hidden
+  transition width 0.5s ease-in
+  width 150px
+
+  &.hidden
+    width 0
 
 footer
   clear both
