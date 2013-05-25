@@ -219,10 +219,11 @@ module.exports = function(grunt) {
     'default',
     [
       'clean:index',
-      'stylus',
       'uglify',
-      'concat',
+      'concat:stylus',
+      'stylus',
       'renderSpinnerListItems',
+      'concat:spinner',
       'renderIndex',
       'htmlmin',
       'clean:all',
