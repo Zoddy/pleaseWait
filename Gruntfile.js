@@ -225,7 +225,7 @@ module.exports = function(grunt) {
       'renderSpinnerListItems',
       'renderIndex',
       'htmlmin',
-      //'clean:all',
+      'clean:all',
       'copy'
     ]
   );
