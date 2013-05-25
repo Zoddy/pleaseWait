@@ -3,9 +3,6 @@
   <head>
     <title>pleaseWait - CSS3 Loader</title>
     <style type="text/css"><%= spinners.style %></style>
-    <script
-      src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"
-    ></script>
   </head>
   <body>
     <h1>pleaseWait</h1>
@@ -24,7 +21,13 @@
       <span> & </span>
       <a target="_blank" href="https://github.com/stefanjudis">Stefan Judis</a>
     </footer>
-
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"
+    ></script>
+    <script>
+      window.jQuery ||
+      document.write('<script src="vendor/jquery-2.0.1.min.js"><\/script>')
+    </script>
     <script type="text/javascript">
       <%= spinners.script %>
       pw.init();
