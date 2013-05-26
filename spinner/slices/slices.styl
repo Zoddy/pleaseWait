@@ -1,0 +1,68 @@
+#slices
+  height 30px
+  perspective 100px
+  position relative
+  width 30px
+
+  & > div
+    animation-direction normal
+    animation-duration 3s
+    animation-iteration-count infinite
+    animation-play-state inherit
+    animation-timing-function linear
+    background-color fgColorRGBA(0.2)
+    height 100%
+    position absolute
+    width 100%
+
+    &:nth-child(1)
+      animation-name slice1
+      transform translateZ(-320px)
+
+    &:nth-child(2)
+      animation-name slice2
+      transform translateZ(-240px)
+
+    &:nth-child(3)
+      animation-name slice3
+      transform translateZ(-160px)
+
+    &:nth-child(4)
+      animation-name slice4
+      transform translateZ(-80px)
+
+@keyframes slice1
+  0%
+    transform translateZ(-320px)
+  100%
+    transform translateZ(0)
+
+@keyframes slice2
+  0%
+    transform translateZ(-240px)
+  74%
+    transform translateZ(0)
+  75%
+    transform translateZ(-320px)
+  100%
+    transform translateZ(-240px)
+
+@keyframes slice3
+  0%
+    transform translateZ(-160px)
+  49%
+    transform translateZ(0)
+  50%
+    transform translateZ(-320px)
+  100%
+    transform translateZ(-160px)
+
+@keyframes slice4
+  0%
+    transform translateZ(-80px)
+  24%
+    transform translateZ(0)
+  25%
+    transform translateZ(-320px)
+  100%
+    transform translateZ(-80px)
