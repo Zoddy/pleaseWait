@@ -27,7 +27,7 @@ module.exports = function(grunt) {
           stylusObject[ spinners[i].cssDistPath ] = spinners[i].stylusSpinnerPath;
         }
 
-        stylusObject['./dist/style.css'] = Config.distDirectory + '/style.styl';
+        stylusObject[Config.distDirectory + '/default.css'] = './default.styl';
 
         return stylusObject;
       };
@@ -56,12 +56,9 @@ module.exports = function(grunt) {
         src: [Config.distDirectory + '/**/spinner.html'],
         dest: Config.distDirectory + '/spinners.html'
       },
-      stylus: {
-        src: [
-          __dirname + '/default.styl',
-          Config.spinnerDirectory + '/**/*.styl'
-        ],
-        dest: Config.distDirectory + '/style.styl'
+      css: {
+        src: [Config.distDirectory + '/**/style.html'],
+        dest: Config.distDirectory + '/styles.html'
       }
     },
 
@@ -105,6 +102,10 @@ module.exports = function(grunt) {
     stylus: {
       compile: {
         options: {
+          import: [
+            __dirname + '/mixins.styl',
+            __dirname + '/variables.styl'
+          ],
           compress: true
         },
         files: getStylusDirectories()
@@ -119,8 +120,8 @@ module.exports = function(grunt) {
       },
       dist: {
         options: {
-          mangle: true,
-          compress: true
+          mangle: false,
+          compress: false
         },
         files: {
           './dist/pw.min.js': ['./pw.js']
@@ -165,7 +166,7 @@ module.exports = function(grunt) {
 
   // spinner template handling
   grunt.registerTask(
-    'renderSpinnerListItems',
+    'renderSpinnerHtmlListItems',
     'Generate html for each spinner',
     function() {
       var i = 0;
@@ -176,7 +177,7 @@ module.exports = function(grunt) {
         grunt.file.write(
           Config.distDirectory + '/' + spinners[i].info.name + '/spinner.html',
           grunt.template.process(
-            grunt.file.read(Config.tmplDirectory + '/spinner.html'),
+            grunt.file.read(Config.tmplDirectory + '/spinnerHtml.tmpl'),
             { data: spinners[i] }
           )
         );
@@ -188,6 +189,48 @@ module.exports = function(grunt) {
     }
   );
 
+  grunt.registerTask(
+    'renderSpinnerStyleItems',
+    'Generate style tags for each spinner',
+    function() {
+      var i = 0;
+
+      for (i; i < spinners.length; i++) {
+        spinners[i].css = grunt.file.read(spinners[i].cssDistPath);
+
+        grunt.file.write(
+          Config.distDirectory + '/' + spinners[i].info.name + '/style.html',
+          grunt.template.process(
+            grunt.file.read(Config.tmplDirectory + '/spinnerCss.tmpl'),
+            { data: {
+              css: grunt.file.read(Config.distDirectory + '/' + spinners[i].info.name + '/' + spinners[i].info.name + '.css'),
+              directory: spinners[i].info.name
+            } }
+          )
+        );
+
+        grunt.log.writeln(
+          'File: ./dist/' + spinners[i].info.name + '/style.html created.'
+        );
+      }
+
+      grunt.file.write(
+        Config.distDirectory + '/default/style.html',
+        grunt.template.process(
+          grunt.file.read(Config.tmplDirectory + '/spinnerCss.tmpl'),
+          { data: {
+            css: grunt.file.read(Config.distDirectory + '/default.css'),
+            directory: 'default'
+          } }
+        )
+      );
+
+      grunt.log.writeln(
+          'File: ./dist/default/style.html created.'
+        );
+    }
+  );
+
   // index template handling
   grunt.registerTask(
     'renderIndex',
@@ -196,12 +239,12 @@ module.exports = function(grunt) {
       grunt.file.write(
         Config.distDirectory + '/index.html',
         grunt.template.process(
-          grunt.file.read(Config.tmplDirectory + '/index.html'),
+          grunt.file.read(Config.tmplDirectory + '/index.tmpl'),
           {
             data: {
               spinners: {
                 html: grunt.file.read(Config.distDirectory + '/spinners.html'),
-                style: grunt.file.read(Config.distDirectory + '/style.css'),
+                style: grunt.file.read(Config.distDirectory + '/styles.html' ),
                 script: grunt.file.read(Config.distDirectory + '/pw.min.js')
               }
             }
@@ -220,10 +263,10 @@ module.exports = function(grunt) {
     [
       'clean:index',
       'uglify',
-      'concat:stylus',
       'stylus',
-      'renderSpinnerListItems',
-      'concat:spinner',
+      'renderSpinnerHtmlListItems',
+      'renderSpinnerStyleItems',
+      'concat',
       'renderIndex',
       'htmlmin',
       'clean:all',
