@@ -106,7 +106,7 @@ module.exports = function(grunt) {
             __dirname + '/mixins.styl',
             __dirname + '/variables.styl'
           ],
-          compress: true
+          compress: false
         },
         files: getStylusDirectories()
       }
