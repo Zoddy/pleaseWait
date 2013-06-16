@@ -1,89 +1,46 @@
 'use strict';
 
-var pw = {
-  loader: {},
-  _loader: {},
-  _githubUri: 'https://github.com/',
-  _info: null,
+;(function($) {
+  var spinnerList = $('li'),
+      info = $('#loaderInfo'),
+      spinnerName = $('h3'),
+      spinnerAuthor = info.find('a'),
+      githubUrl = 'https://github.com/';
 
-  init: function() {
-    this._loader = $('#toc > li');
-    this._loader.on('mouseenter', this._showInfo.bind(this));
-    this._loader.on('click', this._toggleCodeSnippets.bind(this));
+  spinnerList.mouseenter(function(event) {
+    var spinner = $(event.currentTarget),
+        link = githubUrl + spinner.data('github'),
+        author = spinner.data('author'),
+        position = spinner.offset();
 
-    this._info = $('#loaderInfo');
-    this._info.on('mouseleave', this._hideInfo.bind(this));
-    this._info.on(
-      'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
-      this._positionInfo.bind(this)
-    );
+    // set informations
+    spinnerName.text(spinner.data('name'));
+    spinnerAuthor.attr('href', link).text(author);
 
-    this._infoHtml = this._info.find('#loaderInfoHtml');
-    this._infoCss = this._info.find('#loaderInfoCss');
-  },
+    // higher z-index
+    spinner.css('z-index', 2);
 
-  _hideInfo: function() {
-    var css = this._infoCss,
-        html = this._infoHtml,
-        info = this._info,
-        loader = this._currentLoader;
-
-    if (loader.hasClass('play')) {
-      loader.toggleClass('play pause');
-
-      info.hide();
-
-      css.addClass('hidden');
-      html.addClass('hidden');
-    }
-  },
-
-  _positionInfo: function() {
-    var loader = this._currentLoader,
-        loaderPos = loader.offset(),
-        info = this._info;
-
+    // show info
     info.css({
       'left': (
-        loaderPos.left -
-        info.outerWidth() / 2 +
-        loader.outerWidth() / 2
-      ).toFixed(0) + 'px',
-      'top': (loaderPos.top - info.height() / 2 + loader.height() / 2) + 'px'
+        position.left +
+        spinner.outerWidth() / 2 -
+        info.outerWidth() / 2) +
+        'px',
+      'top': (
+        position.top +
+        spinner.outerHeight() / 2 -
+        info.outerHeight() / 2) +
+        'px',
+      'visibility': 'visible'
     });
-  },
+  });
 
-  _toggleCodeSnippets: function(event) {
-    var css = this._infoCss,
-        html = this._infoHtml,
-        info = this._info,
-        loader = this._currentLoader;
+  info.mouseleave(function() {
+    // default z-index
+    spinnerList.css('z-index', 'auto');
 
-    html.text(loader.data('html'));
-    css.text(loader.data('css'));
-
-    css.toggleClass('hidden');
-    html.toggleClass('hidden');
-
-    this._positionInfo();
-  },
-
-  _showInfo: function(event) {
-    var loader = $(event.currentTarget),
-        info = this._info;
-
-    this._currentLoader = loader;
-
-    if (!loader.hasClass('play')) {
-      loader.toggleClass('play pause');
-
-      info.show();
-      info.find('h3').text(loader.data('name'));
-      info.find('a')
-        .attr('href', this._githubUri + loader.data('github'))
-        .text(loader.data('author'));
-
-      this._positionInfo();
-    }
-  }
-};
+    // hide info
+    info.css('visibility', 'hidden');
+  });
+})($);

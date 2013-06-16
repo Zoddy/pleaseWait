@@ -12,12 +12,12 @@ body
   background-color #282828
   background-size 16px 16px
   color fgColor
-  font-family "Source Code Pro", sans-serif
+  font-family monospace
   font-size 14px
   font-weight 700
   text-shadow 1px 1px borderColor
 
-h1, h2, #toc li, #toc, #toc li:before, #toc li:after, #loaderInfo, footer
+h1, h2, #toc li, #toc, #loaderInfo, footer
   border-radius 4px
   box-shadow inset 2px 2px 30px #000
   padding 10px
@@ -67,25 +67,22 @@ h3
     margin 20px
     width 30px
 
-    &.play
-      border 1px solid bgColor
-      z-index 2
-
-      div
-        animation-play-state running
-
-    &.pause div
+    div
       animation-play-state paused
+
+    &:hover div
+      animation-play-state running
 
 #loaderInfo
   background-color bgColor
   border 1px solid fgColor
-  display none
+  display inline-block
   height 120px
   left 0
   padding 5px
   position absolute
   top 0
+  visibility: hidden;
   z-index 1
 
   a
@@ -98,19 +95,9 @@ h3
     &:before
       content "by "
 
-  & > div
+  > div
     display inline-block
     min-height 120px
-
-#loaderInfoCss, #loaderInfoHtml
-  overflow hidden
-  //transition width 0.5s ease-in
-  width 150px
-  height 100%
-
-  &.hidden
-    height 0
-    width 0
 
 footer
   clear both
@@ -129,5 +116,5 @@ a
   color fgColor
   text-decoration underline
 
-a:hover
-  text-shadow 0 0 2px fgColor
+  &:hover
+    text-shadow 0 0 2px fgColor
