@@ -15,3 +15,10 @@ More spinner are very welcome, but there are some rules, to get a successfull me
 6. Do not use `opacity`, `rgba` is the better way.
 7. The max size of a spinner should be 30x30px
 8. Oh, and did I say that: NO FLASH!
+
+# Upcoming Features
+
+* Upgrading to Styl
+* Showing CSS and HTML directly on the page
+* Editable CSS and HTML on the page for experiencing
+* UI elements to configure the spinner/loader animations
