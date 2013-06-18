@@ -16,6 +16,23 @@ More spinner are very welcome, but there are some rules, to get a successfull me
 7. The max size of a spinner should be 30x30px
 8. Oh, and did I say that: NO FLASH!
 
+# How to contribute
+
+* Please fork the actual project
+* create a folder for your new spinner inside of the spinner directory
+* make sure, that your new folder includes an info.json, a html file and a stylus file
+* for development you can use ```grunt watch``` which generate always a new build including your new spinner at ```dist/index.html```
+* if you're done, make sure you followed the rules and add / commit your new spinner folder
+* make pull request
+ 
+
+Example folder structure:
+  ```
+  spinner | yourNewSpinner | - info.json
+                           | - yourNewSpinner.html
+                           | - yourNewSpinner.styl
+  ```
+
 # Upcoming Features
 
 * Upgrading to Styl
