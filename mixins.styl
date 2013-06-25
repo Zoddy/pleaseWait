@@ -40,14 +40,19 @@ animation-timing-function(function)
   -o-animation-timing-function function
   animation-timing-function function
 
+background-linear-gradient(startPoint, startColor, startInterval, endColor, endInterval)
+  background-color startColor
+  background-image -webkit-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+  background-image -moz-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+  background-image -ms-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+  background-image -o-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+  background-image linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+
 box-shadow()
   -webkit-box-shadow arguments
   -moz-box-shadow arguments
   -o-box-shadow arguments
   box-shadow arguments
-
-fgColorRGBA(alpha)
-  return rgba(33, 135, 231, alpha);
 
 perspective(arguments)
   -webkit-perspective arguments

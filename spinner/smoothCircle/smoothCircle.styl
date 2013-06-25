@@ -1,0 +1,34 @@
+#smoothCircle
+  animation-direction normal
+  animation-duration 1s
+  animation-iteration-count infinite
+  animation-name smoothCircle
+  animation-play-state inherit
+  animation-timing-function linear
+
+  background-linear-gradient(top, rgba(fgColor, 0.15), 0%, rgba(fgColor, 1.0), 100%)
+  border-radius 50%
+
+  height 30px
+  margin auto
+  position relative
+  width 30px
+
+
+  div
+    background-color #000
+    border-radius 50%
+    box-shadow 0 1px 1px #000, inset 0 1px 1px fgColor
+    height 66.6666%
+    left 50%
+    margin -33.3333% 0 0 -33.3333%
+    position absolute
+    top calc(50% - 2px)
+    width 66.6666%
+
+@keyframes smoothCircle
+  0%
+    transform rotate(0)
+
+  100%
+    transform rotate(360deg)
