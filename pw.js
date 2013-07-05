@@ -1,7 +1,7 @@
 'use strict';
 
 ;(function($) {
-  var spinnerList = $('li'),
+  var spinnerList = $('#toc > li'),
       info = $('#loaderInfo'),
       spinnerName = $('h3'),
       spinnerAuthor = info.find('a'),
