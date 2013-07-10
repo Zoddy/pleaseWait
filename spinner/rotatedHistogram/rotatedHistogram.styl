@@ -1,0 +1,50 @@
+#rotatedHistogram
+  ul
+    animation-play-state inherit
+
+    height 30px
+    list-style none
+    margin 0
+    padding 0
+    position relative
+    overflow hidden
+    li
+      animation-direction normal
+      animation-duration 2s
+      animation-iteration-count infinite
+      animation-name rotatedHistogram
+      animation-play-state inherit
+      animation-timing-function linear
+
+      background-color fgColor
+      box-shadow inset 0 0 1px darken(fgColor, 45)
+
+      display inline-block
+
+      height 50%
+
+      margin 25% 1px 0 0
+      padding 0
+
+      width: 4px;
+
+      for num in (1..6)
+        &:nth-child({num})
+          animation-delay 1s * ( num / 6 )
+
+@keyframes rotatedHistogram
+  0%
+    transform rotateZ(0deg)
+    background-color rgba(fgColor, 0.2)
+  // 15%
+  //   transform scaleY(2)
+  //   background-color lighten(fgColor, 20)
+  // 30%
+  //   transform scaleY(0.5)
+  //   background-color fgColor
+  30%
+    transform rotateZ(180deg)
+    background-color rgba(lighten(fgColor, 20), 1)
+  100%
+    transform rotateZ(180deg)
+    background-color rgba(fgColor, 0.2)
