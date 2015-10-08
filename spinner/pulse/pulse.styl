@@ -1,0 +1,28 @@
+#pulse
+  margin 50% auto
+  box-shadow 0px 0px 10px 1px lighten(fgColor, 0.5)
+  height 1px
+  width 30px
+
+  div
+    animation-direction normal
+    animation-duration 1.25s
+    animation-iteration-count infinite
+    animation-name move
+    animation-play-state inherit
+    animation-timing-function linear
+    background-color fgColor
+    box-shadow 0 0 15px 5px lighten(fgColor, 1)
+    height 2px
+    left 0
+    position relative
+    top 0
+    width 2px
+
+@keyframes move
+  from
+    left 0
+  50%
+    left 30px
+  to
+    left 0
